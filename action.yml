@@ -1,0 +1,54 @@
+name: 'SPIN Oneshot Execution'
+description: 'Execute a SPIN notebook in oneshot mode and capture results'
+author: 'Siftd'
+
+branding:
+  icon: 'play-circle'
+  color: 'blue'
+
+inputs:
+  notebook-url:
+    description: 'URL to the SPIN notebook to execute'
+    required: true
+
+  spin-token:
+    description: 'Authentication token for SPIN runtime'
+    required: true
+
+  saturn-url:
+    description: 'URL to Saturn s-server instance'
+    required: false
+    default: ''
+
+  max-duration:
+    description: 'Maximum execution duration (e.g., 10m, 1h)'
+    required: false
+    default: '10m'
+
+  output-format:
+    description: 'Output format: urls, json, or logs'
+    required: false
+    default: 'urls'
+
+outputs:
+  session-urls:
+    description: 'JSON array of viewable session URLs'
+    value: ${{ steps.execute.outputs.session-urls }}
+
+  exit-code:
+    description: 'Notebook execution exit code (0 = success)'
+    value: ${{ steps.execute.outputs.exit-code }}
+
+  execution-duration:
+    description: 'Execution duration in seconds'
+    value: ${{ steps.execute.outputs.execution-duration }}
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    NOTEBOOK_URL: ${{ inputs.notebook-url }}
+    SPIN_TOKEN: ${{ inputs.spin-token }}
+    SATURN_URL: ${{ inputs.saturn-url }}
+    MAX_DURATION: ${{ inputs.max-duration }}
+    OUTPUT_FORMAT: ${{ inputs.output-format }}

@@ -1,0 +1,31 @@
+name: Example SPIN Oneshot Execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      notebook-url:
+        description: 'URL to the SPIN notebook to execute'
+        required: true
+        default: 'https://spin.siftd.ai/api/v1/orgs/myorg/workspaces/myworkspace/notebooks/my-notebook/export'
+      max-duration:
+        description: 'Maximum execution duration (e.g., 10m, 1h)'
+        required: false
+        default: '10m'
+
+jobs:
+  execute-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute SPIN Notebook
+        id: spin
+        uses: siftd/spin-oneshot-action@v1
+        with:
+          notebook-url: ${{ inputs.notebook-url }}
+          spin-token: ${{ secrets.SPIN_TOKEN }}
+          max-duration: ${{ inputs.max-duration }}
+
+      - name: Display Results
+        run: |
+          echo "Execution completed in ${{ steps.spin.outputs.execution-duration }} seconds"
+          echo "Exit code: ${{ steps.spin.outputs.exit-code }}"
+          echo "Session URLs: ${{ steps.spin.outputs.session-urls }}"
