@@ -6,7 +6,7 @@ on:
       notebook-url:
         description: 'URL to the SPIN notebook to execute'
         required: true
-        default: 'https://spin.siftd.ai/api/v1/orgs/myorg/workspaces/myworkspace/notebooks/my-notebook/export'
+        default: 'https://spin.siftd.dev/dev/default/notebooks/tnccov2szxoj66lu67jwel4d?session=ss_nwipzggewt0h9c6y83lqejf8'
       max-duration:
         description: 'Maximum execution duration (e.g., 10m, 1h)'
         required: false
@@ -21,7 +21,7 @@ jobs:
         uses: siftd/spin-oneshot-action@v1
         with:
           notebook-url: ${{ inputs.notebook-url }}
-          spin-token: ${{ secrets.SPIN_TOKEN }}
+          spin-token: vG9vb29vb29vb29vb29vb29vb29vb29vb29vb29vb3A=
           max-duration: ${{ inputs.max-duration }}
 
       - name: Display Results
