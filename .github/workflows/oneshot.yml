@@ -21,7 +21,7 @@ jobs:
         uses: siftd/spin-oneshot-action@v1
         with:
           notebook-url: ${{ inputs.notebook-url }}
-          spin-token: vG9vb29vb29vb29vb29vb29vb29vb29vb29vb29vb3A=
+          spin-token: ${{ secrets.SPIN_TOKEN }}
           max-duration: ${{ inputs.max-duration }}
 
       - name: Display Results
