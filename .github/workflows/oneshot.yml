@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       notebook-url:
-        description: 'URL to the SPIN notebook to execute (example: https://spin.siftd.ai/dev/default/notebooks/tnddov2tzxoj66lu67xwel44)'
+        description: 'URL to the SPIN notebook to execute (eg...https://spin.siftd.ai/myorg/myworkspace/notebooks/<notebookid>)'
         required: true
         default: ''
       max-duration:
