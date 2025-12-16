@@ -12,9 +12,9 @@ See [.github/workflows/oneshot.yml](.github/workflows/oneshot.yml) for a complet
 
 To use this action, copy the example workflow and ensure:
 - Ensure `ONESHOT_SPIN_TOKEN` secret exists for your repo
-  - To create a oneshot spin token, click on Runtimes --> Oneshot Token -> Add Oneshot Token:wq
-  - Store this as a actions secret in github (Settings --> Secrets and Variables --> Actions --> Repository Secrets)
-- Set the Notebook URL appropriately
-  - you can copy this directly from your browser when the notebook is loaded
-  - it looks something like: https://spin.siftd.ai/myorg/myworkspace/notebooks/mynotebookid2342sdFa
+  - To create a oneshot spin token, click on `Runtimes -> Oneshot Token -> Add Oneshot Token`
+  - Store this as a actions secret in github `Settings -> Secrets and Variables -> Actions -> Repository Secrets`
+- Set the Notebook URL appropriately when you kick off the workflow
+  - In SPIN UI, click on the notebook you want and you can copy URL from your browser address bar
+  - Looks like: `https://spin.siftd.ai/myorg/myworkspace/notebooks/mynotebookid2342sdFa`
 
