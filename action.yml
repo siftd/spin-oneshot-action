@@ -52,3 +52,11 @@ runs:
     SATURN_URL: ${{ inputs.saturn-url }}
     MAX_DURATION: ${{ inputs.max-duration }}
     OUTPUT_FORMAT: ${{ inputs.output-format }}
+    # Pass through GitHub Actions context for notebooks that need it
+    GHA_TOKEN: ${{ github.token }}
+    GHA_RUN_ID: ${{ github.run_id }}
+    GHA_REPOSITORY: ${{ github.repository }}
+    GHA_JOB: ${{ github.job }}
+    GHA_WORKFLOW: ${{ github.workflow }}
+    GHA_SHA: ${{ github.sha }}
+    GHA_REF: ${{ github.ref }}
