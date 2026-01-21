@@ -33,15 +33,12 @@ inputs:
 outputs:
   session-urls:
     description: 'JSON array of viewable session URLs'
-    value: ${{ steps.execute.outputs.session-urls }}
 
   exit-code:
     description: 'Notebook execution exit code (0 = success)'
-    value: ${{ steps.execute.outputs.exit-code }}
 
   execution-duration:
     description: 'Execution duration in seconds'
-    value: ${{ steps.execute.outputs.execution-duration }}
 
 runs:
   using: 'docker'
